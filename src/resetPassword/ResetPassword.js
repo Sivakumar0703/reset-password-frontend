@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 import axios from "axios";
 import "../resetPassword/ResetPassword.css"
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ResetPassword = () => {
 
     const [password, setPassword] = useState('');
     const [cpassword, setCpassword] = useState('');
+    const navigate = useNavigate();
     const params = useParams();
     const verification = params.verification;
     const token = params.token;
@@ -32,6 +33,7 @@ const ResetPassword = () => {
         .then(res => toast(res.data.message))
         .catch(err => {
             toast(err.response.data.message)
+            navigate('*')
         })
 
     },[])

@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ForgotPassword />} />
         <Route path="reset_password/:verification/:token" element={<ResetPassword />} />
-        <Route path='*' element={<Errorpage />} />
+        <Route path='/*' element={<Errorpage />} />
       </Routes>
       </BrowserRouter>
       
